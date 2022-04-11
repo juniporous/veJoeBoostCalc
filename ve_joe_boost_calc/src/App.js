@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import {joePerSec} from "./utils/joeFarms"
 
 function App() {
+
   return (
     <div className="App">
       <header>
         <div>
-          start 
+          hello
           </div>
       </header>
     </div>
