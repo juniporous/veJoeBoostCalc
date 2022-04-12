@@ -12,12 +12,25 @@ const joeInstance = new ethers.Contract(
 // console.log('joepersec',joeInstance.joePerSec())
 async function joePerSec() {
     const joePerSec = await joeInstance.joePerSec()
-    console.log('joepersec', joePerSec.toString())
+    // console.log('joepersec', joePerSec.toString())
     return joePerSec.toString();
 }
-// console.log('aslkjad')
-console.log('hjg', joePerSec())
 
+async function poolInfo(num) {
+    return joeInstance.poolInfo(num)
+      .then(res => res)
+        .then(data => data)
+           
+}
+
+async function JoePools() {
+    const poolTotal = await joeInstance.poolLength()
+    const poolArr =  [...Array(parseInt(poolTotal)).keys()]
+    const pools = await Promise.all(poolArr.map((poolNum) => joeInstance.poolInfo(poolNum)))
+    return pools
+}
+
+console.log('!@#@!#', JoePools())
 export {
     joePerSec
 }
