@@ -1,16 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import {joePerSec} from "./utils/joeFarms"
+import Calculator from "./components/Calculator.js"
 
 function App() {
 
   return (
     <div className="App">
-      <header>
-        <div>
-          helloz
-          </div>
-      </header>
+      <Calculator/>
     </div>
   );
 }
