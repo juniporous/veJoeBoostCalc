@@ -20,6 +20,7 @@ export default function Calculator() {
     
     // joPools contains exchangeClient fields plus allocPoint and totalFactor
     const [joPools, setJoPools] = useState([]) //done
+    const [selectedJoPool, setSelectedJoPool] = useState()
     
     
     
@@ -114,10 +115,13 @@ export default function Calculator() {
             let copy = {...entry}
             // pair pool data from Graph exchangeClient does not have totalFactor or AllocPoint, add those below
             copy.totalFactor = ethersJsPoolInfo[i].totalFactor.toString()
-            copy.totalAllocPoint = graphBoostedMasterChefInfo[i].allocPoint
+            copy.allocPoint = graphBoostedMasterChefInfo[i].allocPoint
+            console.log('232332  ',copy.allocPoint, totalAllocPoint, parseInt(joePer.toString()))
+            copy.joePerSecond = parseInt(copy.allocPoint) / totalAllocPoint * parseInt(joePer.toString())
             return copy
         })
         setJoPools(prodPairs)
+        setSelectedJoPool(joPools[8])
       }, [])
 
       //asdf
@@ -158,13 +162,19 @@ export default function Calculator() {
                     ) :
                     setActualLiqTokens(0);
               });
+              console.log('vejoe supply', veJoeSupply)
     }, [userAddress])
       
+
+    useEffect(() => {
+
+    })
+
 
       return (
           <div>
               { joPools ?
-                  console.log('jojojo') : null
+                  console.log('jojojo', veJoeSupply) : null
                   }
           </div>
       )

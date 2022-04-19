@@ -75,7 +75,7 @@ async function veJoeBalance(userAddress) {
     // console.log('!!!vejoetotal',veJoeTotalSupply.toString())
     return {veJoeHolding, veJoeTotalSupply}
 }
-// console.log(veJoeBalance('0x45dC664635627C0FE5c7119fe5BE2C3D39Ea3e74'))
+
 
 
 export {
